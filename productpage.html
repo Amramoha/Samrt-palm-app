@@ -1,0 +1,61 @@
+<?php
+$product_id = 1;
+$product_name = "جذع النخلة الذكي";
+$product_image = "product.jpg";
+?>
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product page</title>
+    <style>
+           body {
+             font-family: Arial, sans-serif;
+             background-color: #ffefcd;
+             padding: 0;
+             text-align: center;
+        }
+        .product-container img {
+            margin: auto;
+            width: 600%;
+            height: 600%;
+        }
+       .product-container h1 {
+           font-size: 24px;
+           margin-bottom: 10px;
+           color: #000000;
+           text-align: center;
+       } 
+       p {
+          font-size: 18px;
+          color: #000000;
+          text-align: center;
+      }
+      .product-container input[type="submit"] {
+          background-color: #557c56;
+          color: white;
+          padding: 10px 20px;
+          cursor: pointer;
+          text-align: left;
+     }
+    </style>     
+</head>
+<body>
+<p> Smart Palm Trunk Device A device that heats the soil and helps dates grow</p>
+    <div class="product-container">
+    
+        <img src="C:\Users\umrah\OneDrive\سطح المكتب\مجلد جديد (2)\product.jpg"  style="width: 600px; height: 600px;">
+        <h1>Smart palm trunk</h1>
+        <form action="cart.html" method="post">
+            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+            <input type="hidden" name="product_name" value="<?php echo $product_name; ?>">
+            <input type="hidden" name="product_image" value="<?php echo $product_image; ?>">
+            <input type="submit" value="put to the cart">
+       </form>
+    </div>
+</body>
+<html>
+
+

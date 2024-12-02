@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Put to the cart</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    margin: 20px;
+    background-color: #ffefcd;
+
+}
+
+.product, #cart {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+}
+</style>
+<script>
+document.getElementById('add-to-cart').addEventListener('click', () => {
+    const productName = "اسم المنتج";
+    const price = parseFloat(document.getElementById('price').textContent);
+    const quantity = parseInt(document.getElementById('quantity').value);
+
+    const cartItems = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
+
+    // إضافة العنصر إلى السلة
+    const listItem = document.createElement('li');
+    listItem.textContent = ${productName} - الكمية: ${quantity} - السعر الإجمالي: ${price * quantity} ريال;
+    cartItems.appendChild(listItem);
+
+    // تحديث المجموع
+    const currentTotal = parseFloat(totalPriceElement.textContent.replace(/[^0-9.]/g, ""));
+    const newTotal = currentTotal + price * quantity;
+    totalPriceElement.textContent = المجموع: ${newTotal} ريال;
+});
+</script>
+</head>
+<body>
+    <div class="product">
+        <h2>Smart palm trunk</h2>
+        <img src="C:\Users\umrah\OneDrive\سطح المكتب\مجلد جديد (2)\product.jpg"  style="width: 600px; height: 600px;">
+        <p>Smart Palm Trunk Device A device that heats the soil and helps dates grow</p>
+        <p>price <span id="price">50</span>SAR</p>
+        <label for="quantity">quantity:</label>
+        <input type="number" id="quantity" value="1" min="1">
+        <button id="add-to-cart">put to the cart</button>
+    </div>
+    <div id="cart">
+        <h3>basket</h3>
+        <ul id="cart-items"></ul>
+        <p id="total-price">Total: 0 SAR</p>
+    </div>
+
+ </body>
+</html>
